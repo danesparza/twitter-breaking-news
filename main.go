@@ -41,7 +41,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/news/{twitterName}", func(w http.ResponseWriter, r *http.Request) {
 
-		//	Parse the calendarid from the url
+		//	Parse the twitter name from the url
 		twitterName := mux.Vars(r)["twitterName"]
 
 		//	Our return values:
