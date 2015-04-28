@@ -1,6 +1,8 @@
 # twitter-breaking-news
 Simple breaking news microservice written in Go
 
+[![Build Status](https://drone.io/github.com/danesparza/twitter-breaking-news/status.png)](https://drone.io/github.com/danesparza/twitter-breaking-news/latest)
+
 *To build, make sure you have the latest version of [Go](http://golang.org/) installed.  If you've never used Go before, it's a quick install and [there are installers for multiple platforms](http://golang.org/doc/install), including Windows, Linux and OSX.*
 
 ### Quick Start
