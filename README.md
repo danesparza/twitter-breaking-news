@@ -14,6 +14,8 @@ go get github.com/danesparza/twitter-breaking-news
 go build
 ```
 
+A docker image will be shipped soon
+
 ### Starting and testing the service
 To start the service, just run `twitter-breaking-news`.  
 
