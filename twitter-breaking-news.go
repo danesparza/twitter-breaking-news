@@ -9,6 +9,7 @@ import (
 	"github.com/rs/cors"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -21,14 +22,52 @@ type Tweet struct {
 	MediaUrl   string `json:url`
 }
 
+//	Set up our flags
+var (
+	port           = flag.Int("port", 3000, "The port to listen on")
+	allowedOrigins = flag.String("allowedOrigins", "*", "A comma-separated list of valid CORS origins")
+	consumerKey    = flag.String("consumerKey", "", "Your twitter consumer key")
+	consumerSecret = flag.String("consumerSecret", "", "Your twitter consumer secret")
+	authToken      = flag.String("authToken", "", "Your twitter auth token")
+	authSecret     = flag.String("authSecret", "", "Your twitter auth secret")
+)
+
+func parseEnvironment() {
+	//	Check for the listen port
+	if env_port := os.Getenv("TWITTER_PORT"); env_port != "" {
+		*port, _ = strconv.Atoi(env_port)
+	}
+
+	//	Check for allowed origins
+	if env_origins := os.Getenv("TWITTER_ALLOWED_ORIGINS"); env_origins != "" {
+		*allowedOrigins = env_origins
+	}
+
+	//	Check for consumer key
+	if env_consumer_key := os.Getenv("TWITTER_CONSUMER_KEY"); env_consumer_key != "" {
+		*consumerKey = env_consumer_key
+	}
+
+	//	Check for consumer secret
+	if env_consumer_secret := os.Getenv("TWITTER_CONSUMER_SECRET"); env_consumer_secret != "" {
+		*consumerSecret = env_consumer_secret
+	}
+
+	//	Check for auth token
+	if env_auth_token := os.Getenv("TWITTER_AUTH_TOKEN"); env_auth_token != "" {
+		*authToken = env_auth_token
+	}
+
+	//	Check for auth secret
+	if env_auth_secret := os.Getenv("TWITTER_AUTH_SECRET"); env_auth_secret != "" {
+		*authSecret = env_auth_secret
+	}
+}
+
 func main() {
-	//	Set up our flags
-	port := flag.Int("port", 3000, "The port to listen on")
-	allowedOrigins := flag.String("allowedOrigins", "*", "A comma-separated list of valid CORS origins")
-	consumerKey := flag.String("consumerKey", "", "Your twitter consumer key")
-	consumerSecret := flag.String("consumerSecret", "", "Your twitter consumer secret")
-	authToken := flag.String("authToken", "", "Your twitter auth token")
-	authSecret := flag.String("authSecret", "", "Your twitter auth secret")
+
+	//	Parse environment variables:
+	parseEnvironment()
 
 	//	Parse the command line for flags:
 	flag.Parse()
