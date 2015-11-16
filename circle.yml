@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t danesparza/twitter-breaking-news:$CIRCLE_SHA1 .
+    - docker build -t danesparza/twitter-breaking-news:$CIRCLE_BUILD_NUM .
 
 deployment:
   hub:
