@@ -1,7 +1,5 @@
-# twitter-breaking-news
+# twitter-breaking-news [![Circle CI](https://circleci.com/gh/danesparza/twitter-breaking-news.svg?style=svg)](https://circleci.com/gh/danesparza/twitter-breaking-news)
 Simple breaking news microservice written in Go
-
-Build: [![Circle CI](https://circleci.com/gh/danesparza/twitter-breaking-news.svg?style=svg)](https://circleci.com/gh/danesparza/twitter-breaking-news)
 
 *To build, make sure you have the latest version of [Go](http://golang.org/) installed.  If you've never used Go before, it's a quick install and [there are installers for multiple platforms](http://golang.org/doc/install), including Windows, Linux and OSX.*
 
