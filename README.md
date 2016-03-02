@@ -1,20 +1,19 @@
 # twitter-breaking-news [![Circle CI](https://circleci.com/gh/danesparza/twitter-breaking-news.svg?style=svg)](https://circleci.com/gh/danesparza/twitter-breaking-news)
 Simple breaking news microservice written in Go
 
-*To build, make sure you have the latest version of [Go](http://golang.org/) installed.  If you've never used Go before, it's a quick install and [there are installers for multiple platforms](http://golang.org/doc/install), including Windows, Linux and OSX.*
-
 ### Quick Start
 
-Run the following commands get latest and build.
+Grab the [latest release](https://github.com/danesparza/twitter-breaking-news/releases/latest) for your platform
+
+or 
 
 ```bash
-go get github.com/danesparza/twitter-breaking-news
-go build
+docker pull danesparza/twitter-breaking-news:latest
 ```
 
-A docker image will be shipped soon
+See [the dockerfile for the environment variables](https://github.com/danesparza/twitter-breaking-news/blob/master/Dockerfile#L6-L10) you'll want to use to pass information to the service
 
-### Starting and testing the service
+### Starting the service
 To start the service, just run `twitter-breaking-news`.  
 
 If you need help, just run `twitter-breaking-news --help`.
@@ -30,6 +29,7 @@ consumerSecret  | The consumer secret (API secret).  Get this from your [Twitter
 authToken       | The auth token (Access Token).  Get this from your [Twitter app dashboard](https://apps.twitter.com/).  
 authSecret      | The auth secret (Access Token Secret).  Get this from your [Twitter app dashboard](https://apps.twitter.com/).  
 
+### Testing the service
 Once the service is up and running, you can connect to it using
 `http://yourhostname:3000/news/screenname` where `screenname` is the twitter screen name you're using to get breaking news.  
 
@@ -38,3 +38,11 @@ Example: `http://yourdomain.com:3000/news/cnnbrk`
 To test your service quickly, you can use the [Postman Google Chrome Extension](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to call the service and see the JSON return format.
 
 News information will be returned as a JSON payload.
+
+### Building from source
+*To build, make sure you have the latest version of [Go](http://golang.org/) installed.  If you've never used Go before, it's a quick install and [there are installers for multiple platforms](http://golang.org/doc/install), including Windows, Linux and OSX.*
+
+```bash
+go get github.com/danesparza/twitter-breaking-news
+go build
+```
