@@ -8,7 +8,8 @@ dependencies:
     - go get github.com/mitchellh/gox
     - gox -output "${CIRCLE_ARTIFACTS}/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
     - docker info
-    - docker build -t danesparza/twitter-breaking-news:$CIRCLE_BUILD_NUM .
+    - docker build -t danesparza/twitter-breaking-news .
+    - docker tag danesparza/twitter-breaking-news danesparza/twitter-breaking-news:$CIRCLE_BUILD_NUM
 
 deployment:
   hub:
